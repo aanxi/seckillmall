@@ -4,8 +4,16 @@
 谷粒商城
 
 #### 软件架构
-软件架构说明
+本商城系统采用SpringCloud-Hoxton分布式架构，商城前端使用Thymeleaf引擎进行开发，后台使用vue2.0+ES6进行开发,
+服务中心与配置中心采用Alibaba的Nacos来代替Eureka, 并且使用了Gateway来代替Zuul网关,远程调用使用到了Feign。
+数据库使用Mybatis-Plus来进行配置。基本代码使用人人开源的逆向工程来进行开发。
 
+### 开发环境
+1.架构环境：Spring Boot2.0 + SpringCloud-Hoxton+GateWay网关 + Nacospe配置中心与服务中心 +
+           Fegin + Java14 + Lombok
+2.前端环境：Thymeleaf + Vue2.0 + ES6
+3.开发规范：全局跨域处理（GateWay网关处理）+ 全局统一返回 + 全局异常处理
+3.开发软件：IDEA + VScode
 
 #### 安装教程
 
