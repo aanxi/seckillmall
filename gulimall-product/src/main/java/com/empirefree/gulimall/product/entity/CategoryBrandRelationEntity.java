@@ -2,43 +2,42 @@ package com.empirefree.gulimall.product.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
 
 import java.io.Serializable;
-import java.util.Date;
-import lombok.Data;
 
 /**
  * 品牌分类关联
- * 
- * @author Empirefree
- * @email skt.hyq@gmail.com
- * @date 2020-05-08 09:35:34
+ *
+ * @author empirefree
+ * @email 1842449680@qq.com
+ * @date 2020-05-31 17:06:04
  */
 @Data
 @TableName("pms_category_brand_relation")
 public class CategoryBrandRelationEntity implements Serializable {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	/**
-	 * 
-	 */
-	@TableId
-	private Long id;
-	/**
-	 * 品牌id
-	 */
-	private Long brandId;
-	/**
-	 * 分类id
-	 */
-	private Long catelogId;
-	/**
-	 * 
-	 */
-	private String brandName;
-	/**
-	 * 
-	 */
-	private String catelogName;
+    /**
+     *
+     */
+    @TableId
+    private Long id;
+    /**
+     * 品牌id
+     */
+    private Long brandId;
+    /**
+     * 分类id
+     */
+    private Long catelogId;
+    /**
+     *
+     */
+    private String brandName;
+    /**
+     *
+     */
+    private String catelogName;
 
 }

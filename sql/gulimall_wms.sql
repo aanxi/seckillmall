@@ -15,34 +15,34 @@ drop table if exists wms_ware_sku;
 /*==============================================================*/
 create table wms_purchase
 (
-   id                   bigint not null auto_increment comment '²É¹ºµ¥id',
-   assignee_id          bigint comment '²É¹ºÈËid',
-   assignee_name        varchar(255) comment '²É¹ºÈËÃû',
-   phone                char(13) comment 'ÁªÏµ·½Ê½',
-   priority             int(4) comment 'ÓÅÏÈ¼¶',
-   status               int(4) comment '×´Ì¬',
-   ware_id              bigint comment '²Ö¿âid',
-   amount               decimal(18,4) comment '×Ü½ð¶î',
-   create_time          datetime comment '´´½¨ÈÕÆÚ',
-   update_time          datetime comment '¸üÐÂÈÕÆÚ',
-   primary key (id)
+    id            bigint not null auto_increment comment 'ï¿½É¹ï¿½ï¿½ï¿½id',
+    assignee_id   bigint comment 'ï¿½É¹ï¿½ï¿½ï¿½id',
+    assignee_name varchar(255) comment 'ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½',
+    phone         char(13) comment 'ï¿½ï¿½Ïµï¿½ï¿½Ê½',
+    priority      int(4) comment 'ï¿½ï¿½ï¿½È¼ï¿½',
+    status        int(4) comment '×´Ì¬',
+    ware_id       bigint comment 'ï¿½Ö¿ï¿½id',
+    amount        decimal(18, 4) comment 'ï¿½Ü½ï¿½ï¿½',
+    create_time   datetime comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    update_time   datetime comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table wms_purchase comment '²É¹ºÐÅÏ¢';
+alter table wms_purchase comment 'ï¿½É¹ï¿½ï¿½ï¿½Ï¢';
 
 /*==============================================================*/
 /* Table: wms_purchase_detail                                   */
 /*==============================================================*/
 create table wms_purchase_detail
 (
-   id                   bigint not null auto_increment,
-   purchase_id          bigint comment '²É¹ºµ¥id',
-   sku_id               bigint comment '²É¹ºÉÌÆ·id',
-   sku_num              int comment '²É¹ºÊýÁ¿',
-   sku_price            decimal(18,4) comment '²É¹º½ð¶î',
-   ware_id              bigint comment '²Ö¿âid',
-   status               int comment '×´Ì¬[0ÐÂ½¨£¬1ÒÑ·ÖÅä£¬2ÕýÔÚ²É¹º£¬3ÒÑÍê³É£¬4²É¹ºÊ§°Ü]',
-   primary key (id)
+    id          bigint not null auto_increment,
+    purchase_id bigint comment 'ï¿½É¹ï¿½ï¿½ï¿½id',
+    sku_id      bigint comment 'ï¿½É¹ï¿½ï¿½ï¿½Æ·id',
+    sku_num     int comment 'ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½',
+    sku_price   decimal(18, 4) comment 'ï¿½É¹ï¿½ï¿½ï¿½ï¿½',
+    ware_id     bigint comment 'ï¿½Ö¿ï¿½id',
+    status      int comment '×´Ì¬[0ï¿½Â½ï¿½ï¿½ï¿½1ï¿½Ñ·ï¿½ï¿½ä£¬2ï¿½ï¿½ï¿½Ú²É¹ï¿½ï¿½ï¿½3ï¿½ï¿½ï¿½ï¿½É£ï¿½4ï¿½É¹ï¿½Ê§ï¿½ï¿½]',
+    primary key (id)
 );
 
 /*==============================================================*/
@@ -50,66 +50,66 @@ create table wms_purchase_detail
 /*==============================================================*/
 create table wms_ware_info
 (
-   id                   bigint not null auto_increment comment 'id',
-   name                 varchar(255) comment '²Ö¿âÃû',
-   address              varchar(255) comment '²Ö¿âµØÖ·',
-   areacode             varchar(20) comment 'ÇøÓò±àÂë',
-   primary key (id)
+    id       bigint not null auto_increment comment 'id',
+    name     varchar(255) comment 'ï¿½Ö¿ï¿½ï¿½ï¿½',
+    address  varchar(255) comment 'ï¿½Ö¿ï¿½ï¿½Ö·',
+    areacode varchar(20) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table wms_ware_info comment '²Ö¿âÐÅÏ¢';
+alter table wms_ware_info comment 'ï¿½Ö¿ï¿½ï¿½ï¿½Ï¢';
 
 /*==============================================================*/
 /* Table: wms_ware_order_task                                   */
 /*==============================================================*/
 create table wms_ware_order_task
 (
-   id                   bigint not null auto_increment comment 'id',
-   order_id             bigint comment 'order_id',
-   order_sn             varchar(255) comment 'order_sn',
-   consignee            varchar(100) comment 'ÊÕ»õÈË',
-   consignee_tel        char(15) comment 'ÊÕ»õÈËµç»°',
-   delivery_address     varchar(500) comment 'ÅäËÍµØÖ·',
-   order_comment        varchar(200) comment '¶©µ¥±¸×¢',
-   payment_way          tinyint(1) comment '¸¶¿î·½Ê½¡¾ 1:ÔÚÏß¸¶¿î 2:»õµ½¸¶¿î¡¿',
-   task_status          tinyint(2) comment 'ÈÎÎñ×´Ì¬',
-   order_body           varchar(255) comment '¶©µ¥ÃèÊö',
-   tracking_no          char(30) comment 'ÎïÁ÷µ¥ºÅ',
-   create_time          datetime comment 'create_time',
-   ware_id              bigint comment '²Ö¿âid',
-   task_comment         varchar(500) comment '¹¤×÷µ¥±¸×¢',
-   primary key (id)
+    id               bigint not null auto_increment comment 'id',
+    order_id         bigint comment 'order_id',
+    order_sn         varchar(255) comment 'order_sn',
+    consignee        varchar(100) comment 'ï¿½Õ»ï¿½ï¿½ï¿½',
+    consignee_tel    char(15) comment 'ï¿½Õ»ï¿½ï¿½Ëµç»°',
+    delivery_address varchar(500) comment 'ï¿½ï¿½ï¿½Íµï¿½Ö·',
+    order_comment    varchar(200) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢',
+    payment_way      tinyint(1) comment 'ï¿½ï¿½ï¿½î·½Ê½ï¿½ï¿½ 1:ï¿½ï¿½ï¿½ß¸ï¿½ï¿½ï¿½ 2:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¡¿',
+    task_status      tinyint(2) comment 'ï¿½ï¿½ï¿½ï¿½×´Ì¬',
+    order_body       varchar(255) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    tracking_no      char(30) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    create_time      datetime comment 'create_time',
+    ware_id          bigint comment 'ï¿½Ö¿ï¿½id',
+    task_comment     varchar(500) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢',
+    primary key (id)
 );
 
-alter table wms_ware_order_task comment '¿â´æ¹¤×÷µ¥';
+alter table wms_ware_order_task comment 'ï¿½ï¿½æ¹¤ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: wms_ware_order_task_detail                            */
 /*==============================================================*/
 create table wms_ware_order_task_detail
 (
-   id                   bigint not null auto_increment comment 'id',
-   sku_id               bigint comment 'sku_id',
-   sku_name             varchar(255) comment 'sku_name',
-   sku_num              int comment '¹ºÂò¸öÊý',
-   task_id              bigint comment '¹¤×÷µ¥id',
-   primary key (id)
+    id       bigint not null auto_increment comment 'id',
+    sku_id   bigint comment 'sku_id',
+    sku_name varchar(255) comment 'sku_name',
+    sku_num  int comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    task_id  bigint comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id',
+    primary key (id)
 );
 
-alter table wms_ware_order_task_detail comment '¿â´æ¹¤×÷µ¥';
+alter table wms_ware_order_task_detail comment 'ï¿½ï¿½æ¹¤ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: wms_ware_sku                                          */
 /*==============================================================*/
 create table wms_ware_sku
 (
-   id                   bigint not null auto_increment comment 'id',
-   sku_id               bigint comment 'sku_id',
-   ware_id              bigint comment '²Ö¿âid',
-   stock                int comment '¿â´æÊý',
-   sku_name             varchar(200) comment 'sku_name',
-   stock_locked         int comment 'Ëø¶¨¿â´æ',
-   primary key (id)
+    id           bigint not null auto_increment comment 'id',
+    sku_id       bigint comment 'sku_id',
+    ware_id      bigint comment 'ï¿½Ö¿ï¿½id',
+    stock        int comment 'ï¿½ï¿½ï¿½ï¿½ï¿½',
+    sku_name     varchar(200) comment 'sku_name',
+    stock_locked int comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table wms_ware_sku comment 'ÉÌÆ·¿â´æ';
+alter table wms_ware_sku comment 'ï¿½ï¿½Æ·ï¿½ï¿½ï¿½';

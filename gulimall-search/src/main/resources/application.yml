@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://82.156.202.23:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+    alicloud:
+      access-key: LTAI5tEa8UbKvazTPT2QsuRC
+      secret-key: bjCCutGmq7nbNnHsNQziCCESixRKGW
+      oss:
+        endpoint: oss-cn-shanghai.aliyuncs.com
+        bucket: gulimall-empirefree
+  thymeleaf:
+    cache: false
+
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+server:
+  port: 20000
+logging:
+  level:
+    com.empirefree.gulimall: debug

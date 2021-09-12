@@ -33,260 +33,260 @@ drop table if exists sms_spu_bounds;
 /*==============================================================*/
 create table sms_coupon
 (
-   id                   bigint not null auto_increment comment 'id',
-   coupon_type          tinyint(1) comment 'ÓÅ»Ý¾íÀàÐÍ[0->È«³¡ÔùÈ¯£»1->»áÔ±ÔùÈ¯£»2->¹ºÎïÔùÈ¯£»3->×¢²áÔùÈ¯]',
-   coupon_img           varchar(2000) comment 'ÓÅ»ÝÈ¯Í¼Æ¬',
-   coupon_name          varchar(100) comment 'ÓÅ»Ý¾íÃû×Ö',
-   num                  int comment 'ÊýÁ¿',
-   amount               decimal(18,4) comment '½ð¶î',
-   per_limit            int comment 'Ã¿ÈËÏÞÁìÕÅÊý',
-   min_point            decimal(18,4) comment 'Ê¹ÓÃÃÅ¼÷',
-   start_time           datetime comment '¿ªÊ¼Ê±¼ä',
-   end_time             datetime comment '½áÊøÊ±¼ä',
-   use_type             tinyint(1) comment 'Ê¹ÓÃÀàÐÍ[0->È«³¡Í¨ÓÃ£»1->Ö¸¶¨·ÖÀà£»2->Ö¸¶¨ÉÌÆ·]',
-   note                 varchar(200) comment '±¸×¢',
-   publish_count        int(11) comment '·¢ÐÐÊýÁ¿',
-   use_count            int(11) comment 'ÒÑÊ¹ÓÃÊýÁ¿',
-   receive_count        int(11) comment 'ÁìÈ¡ÊýÁ¿',
-   enable_start_time    datetime comment '¿ÉÒÔÁìÈ¡µÄ¿ªÊ¼ÈÕÆÚ',
-   enable_end_time      datetime comment '¿ÉÒÔÁìÈ¡µÄ½áÊøÈÕÆÚ',
-   code                 varchar(64) comment 'ÓÅ»ÝÂë',
-   member_level         tinyint(1) comment '¿ÉÒÔÁìÈ¡µÄ»áÔ±µÈ¼¶[0->²»ÏÞµÈ¼¶£¬ÆäËû-¶ÔÓ¦µÈ¼¶]',
-   publish              tinyint(1) comment '·¢²¼×´Ì¬[0-Î´·¢²¼£¬1-ÒÑ·¢²¼]',
-   primary key (id)
+    id                bigint not null auto_increment comment 'id',
+    coupon_type       tinyint(1) comment 'ï¿½Å»Ý¾ï¿½ï¿½ï¿½ï¿½ï¿½[0->È«ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½1->ï¿½ï¿½Ô±ï¿½ï¿½È¯ï¿½ï¿½2->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¯ï¿½ï¿½3->×¢ï¿½ï¿½ï¿½ï¿½È¯]',
+    coupon_img        varchar(2000) comment 'ï¿½Å»ï¿½È¯Í¼Æ¬',
+    coupon_name       varchar(100) comment 'ï¿½Å»Ý¾ï¿½ï¿½ï¿½ï¿½ï¿½',
+    num               int comment 'ï¿½ï¿½ï¿½ï¿½',
+    amount            decimal(18, 4) comment 'ï¿½ï¿½ï¿½',
+    per_limit         int comment 'Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    min_point         decimal(18, 4) comment 'Ê¹ï¿½ï¿½ï¿½Å¼ï¿½',
+    start_time        datetime comment 'ï¿½ï¿½Ê¼Ê±ï¿½ï¿½',
+    end_time          datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    use_type          tinyint(1) comment 'Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[0->È«ï¿½ï¿½Í¨ï¿½Ã£ï¿½1->Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½à£»2->Ö¸ï¿½ï¿½ï¿½ï¿½Æ·]',
+    note              varchar(200) comment 'ï¿½ï¿½×¢',
+    publish_count     int(11) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    use_count         int(11) comment 'ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    receive_count     int(11) comment 'ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½',
+    enable_start_time datetime comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½',
+    enable_end_time   datetime comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    code              varchar(64) comment 'ï¿½Å»ï¿½ï¿½ï¿½',
+    member_level      tinyint(1) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡ï¿½Ä»ï¿½Ô±ï¿½È¼ï¿½[0->ï¿½ï¿½ï¿½ÞµÈ¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½Ó¦ï¿½È¼ï¿½]',
+    publish           tinyint(1) comment 'ï¿½ï¿½ï¿½ï¿½×´Ì¬[0-Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½1-ï¿½Ñ·ï¿½ï¿½ï¿½]',
+    primary key (id)
 );
 
-alter table sms_coupon comment 'ÓÅ»ÝÈ¯ÐÅÏ¢';
+alter table sms_coupon comment 'ï¿½Å»ï¿½È¯ï¿½ï¿½Ï¢';
 
 /*==============================================================*/
 /* Table: sms_coupon_history                                    */
 /*==============================================================*/
 create table sms_coupon_history
 (
-   id                   bigint not null auto_increment comment 'id',
-   coupon_id            bigint comment 'ÓÅ»ÝÈ¯id',
-   member_id            bigint comment '»áÔ±id',
-   member_nick_name     varchar(64) comment '»áÔ±Ãû×Ö',
-   get_type             tinyint(1) comment '»ñÈ¡·½Ê½[0->ºóÌ¨ÔùËÍ£»1->Ö÷¶¯ÁìÈ¡]',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   use_type             tinyint(1) comment 'Ê¹ÓÃ×´Ì¬[0->Î´Ê¹ÓÃ£»1->ÒÑÊ¹ÓÃ£»2->ÒÑ¹ýÆÚ]',
-   use_time             datetime comment 'Ê¹ÓÃÊ±¼ä',
-   order_id             bigint comment '¶©µ¥id',
-   order_sn             bigint comment '¶©µ¥ºÅ',
-   primary key (id)
+    id               bigint not null auto_increment comment 'id',
+    coupon_id        bigint comment 'ï¿½Å»ï¿½È¯id',
+    member_id        bigint comment 'ï¿½ï¿½Ô±id',
+    member_nick_name varchar(64) comment 'ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½',
+    get_type         tinyint(1) comment 'ï¿½ï¿½È¡ï¿½ï¿½Ê½[0->ï¿½ï¿½Ì¨ï¿½ï¿½ï¿½Í£ï¿½1->ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡]',
+    create_time      datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    use_type         tinyint(1) comment 'Ê¹ï¿½ï¿½×´Ì¬[0->Î´Ê¹ï¿½Ã£ï¿½1->ï¿½ï¿½Ê¹ï¿½Ã£ï¿½2->ï¿½Ñ¹ï¿½ï¿½ï¿½]',
+    use_time         datetime comment 'Ê¹ï¿½ï¿½Ê±ï¿½ï¿½',
+    order_id         bigint comment 'ï¿½ï¿½ï¿½ï¿½id',
+    order_sn         bigint comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_coupon_history comment 'ÓÅ»ÝÈ¯ÁìÈ¡ÀúÊ·¼ÇÂ¼';
+alter table sms_coupon_history comment 'ï¿½Å»ï¿½È¯ï¿½ï¿½È¡ï¿½ï¿½Ê·ï¿½ï¿½Â¼';
 
 /*==============================================================*/
 /* Table: sms_coupon_spu_category_relation                      */
 /*==============================================================*/
 create table sms_coupon_spu_category_relation
 (
-   id                   bigint not null auto_increment comment 'id',
-   coupon_id            bigint comment 'ÓÅ»ÝÈ¯id',
-   category_id          bigint comment '²úÆ··ÖÀàid',
-   category_name        varchar(64) comment '²úÆ··ÖÀàÃû³Æ',
-   primary key (id)
+    id            bigint not null auto_increment comment 'id',
+    coupon_id     bigint comment 'ï¿½Å»ï¿½È¯id',
+    category_id   bigint comment 'ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½id',
+    category_name varchar(64) comment 'ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_coupon_spu_category_relation comment 'ÓÅ»ÝÈ¯·ÖÀà¹ØÁª';
+alter table sms_coupon_spu_category_relation comment 'ï¿½Å»ï¿½È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_coupon_spu_relation                               */
 /*==============================================================*/
 create table sms_coupon_spu_relation
 (
-   id                   bigint not null auto_increment comment 'id',
-   coupon_id            bigint comment 'ÓÅ»ÝÈ¯id',
-   spu_id               bigint comment 'spu_id',
-   spu_name             varchar(255) comment 'spu_name',
-   primary key (id)
+    id        bigint not null auto_increment comment 'id',
+    coupon_id bigint comment 'ï¿½Å»ï¿½È¯id',
+    spu_id    bigint comment 'spu_id',
+    spu_name  varchar(255) comment 'spu_name',
+    primary key (id)
 );
 
-alter table sms_coupon_spu_relation comment 'ÓÅ»ÝÈ¯Óë²úÆ·¹ØÁª';
+alter table sms_coupon_spu_relation comment 'ï¿½Å»ï¿½È¯ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_home_adv                                          */
 /*==============================================================*/
 create table sms_home_adv
 (
-   id                   bigint not null auto_increment comment 'id',
-   name                 varchar(100) comment 'Ãû×Ö',
-   pic                  varchar(500) comment 'Í¼Æ¬µØÖ·',
-   start_time           datetime comment '¿ªÊ¼Ê±¼ä',
-   end_time             datetime comment '½áÊøÊ±¼ä',
-   status               tinyint(1) comment '×´Ì¬',
-   click_count          int comment 'µã»÷Êý',
-   url                  varchar(500) comment '¹ã¸æÏêÇéÁ¬½ÓµØÖ·',
-   note                 varchar(500) comment '±¸×¢',
-   sort                 int comment 'ÅÅÐò',
-   publisher_id         bigint comment '·¢²¼Õß',
-   auth_id              bigint comment 'ÉóºËÕß',
-   primary key (id)
+    id           bigint not null auto_increment comment 'id',
+    name         varchar(100) comment 'ï¿½ï¿½ï¿½ï¿½',
+    pic          varchar(500) comment 'Í¼Æ¬ï¿½ï¿½Ö·',
+    start_time   datetime comment 'ï¿½ï¿½Ê¼Ê±ï¿½ï¿½',
+    end_time     datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    status       tinyint(1) comment '×´Ì¬',
+    click_count  int comment 'ï¿½ï¿½ï¿½ï¿½ï¿½',
+    url          varchar(500) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½Ö·',
+    note         varchar(500) comment 'ï¿½ï¿½×¢',
+    sort         int comment 'ï¿½ï¿½ï¿½ï¿½',
+    publisher_id bigint comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    auth_id      bigint comment 'ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_home_adv comment 'Ê×Ò³ÂÖ²¥¹ã¸æ';
+alter table sms_home_adv comment 'ï¿½ï¿½Ò³ï¿½Ö²ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_home_subject                                      */
 /*==============================================================*/
 create table sms_home_subject
 (
-   id                   bigint not null auto_increment comment 'id',
-   name                 varchar(200) comment '×¨ÌâÃû×Ö',
-   title                varchar(255) comment '×¨Ìâ±êÌâ',
-   sub_title            varchar(255) comment '×¨Ìâ¸±±êÌâ',
-   status               tinyint(1) comment 'ÏÔÊ¾×´Ì¬',
-   url                  varchar(500) comment 'ÏêÇéÁ¬½Ó',
-   sort                 int comment 'ÅÅÐò',
-   img                  varchar(500) comment '×¨ÌâÍ¼Æ¬µØÖ·',
-   primary key (id)
+    id        bigint not null auto_increment comment 'id',
+    name      varchar(200) comment '×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    title     varchar(255) comment '×¨ï¿½ï¿½ï¿½ï¿½ï¿½',
+    sub_title varchar(255) comment '×¨ï¿½â¸±ï¿½ï¿½ï¿½ï¿½',
+    status    tinyint(1) comment 'ï¿½ï¿½Ê¾×´Ì¬',
+    url       varchar(500) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    sort      int comment 'ï¿½ï¿½ï¿½ï¿½',
+    img       varchar(500) comment '×¨ï¿½ï¿½Í¼Æ¬ï¿½ï¿½Ö·',
+    primary key (id)
 );
 
-alter table sms_home_subject comment 'Ê×Ò³×¨Ìâ±í¡¾jdÊ×Ò³ÏÂÃæºÜ¶à×¨Ìâ£¬Ã¿¸ö×¨ÌâÁ´½ÓÐÂµÄÒ³Ãæ£¬Õ¹Ê¾×¨ÌâÉÌÆ·ÐÅÏ¢¡¿';
+alter table sms_home_subject comment 'ï¿½ï¿½Ò³×¨ï¿½ï¿½ï¿½jdï¿½ï¿½Ò³ï¿½ï¿½ï¿½ï¿½Ü¶ï¿½×¨ï¿½â£¬Ã¿ï¿½ï¿½×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½Ò³ï¿½æ£¬Õ¹Ê¾×¨ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ï¢ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_home_subject_spu                                  */
 /*==============================================================*/
 create table sms_home_subject_spu
 (
-   id                   bigint not null auto_increment comment 'id',
-   name                 varchar(200) comment '×¨ÌâÃû×Ö',
-   subject_id           bigint comment '×¨Ìâid',
-   spu_id               bigint comment 'spu_id',
-   sort                 int comment 'ÅÅÐò',
-   primary key (id)
+    id         bigint not null auto_increment comment 'id',
+    name       varchar(200) comment '×¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    subject_id bigint comment '×¨ï¿½ï¿½id',
+    spu_id     bigint comment 'spu_id',
+    sort       int comment 'ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_home_subject_spu comment '×¨ÌâÉÌÆ·';
+alter table sms_home_subject_spu comment '×¨ï¿½ï¿½ï¿½ï¿½Æ·';
 
 /*==============================================================*/
 /* Table: sms_member_price                                      */
 /*==============================================================*/
 create table sms_member_price
 (
-   id                   bigint not null auto_increment comment 'id',
-   sku_id               bigint comment 'sku_id',
-   member_level_id      bigint comment '»áÔ±µÈ¼¶id',
-   member_level_name    varchar(100) comment '»áÔ±µÈ¼¶Ãû',
-   member_price         decimal(18,4) comment '»áÔ±¶ÔÓ¦¼Û¸ñ',
-   add_other            tinyint(1) comment '¿É·ñµþ¼ÓÆäËûÓÅ»Ý[0-²»¿Éµþ¼ÓÓÅ»Ý£¬1-¿Éµþ¼Ó]',
-   primary key (id)
+    id                bigint not null auto_increment comment 'id',
+    sku_id            bigint comment 'sku_id',
+    member_level_id   bigint comment 'ï¿½ï¿½Ô±ï¿½È¼ï¿½id',
+    member_level_name varchar(100) comment 'ï¿½ï¿½Ô±ï¿½È¼ï¿½ï¿½ï¿½',
+    member_price      decimal(18, 4) comment 'ï¿½ï¿½Ô±ï¿½ï¿½Ó¦ï¿½Û¸ï¿½',
+    add_other         tinyint(1) comment 'ï¿½É·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½[0-ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½Å»Ý£ï¿½1-ï¿½Éµï¿½ï¿½ï¿½]',
+    primary key (id)
 );
 
-alter table sms_member_price comment 'ÉÌÆ·»áÔ±¼Û¸ñ';
+alter table sms_member_price comment 'ï¿½ï¿½Æ·ï¿½ï¿½Ô±ï¿½Û¸ï¿½';
 
 /*==============================================================*/
 /* Table: sms_seckill_promotion                                 */
 /*==============================================================*/
 create table sms_seckill_promotion
 (
-   id                   bigint not null auto_increment comment 'id',
-   title                varchar(255) comment '»î¶¯±êÌâ',
-   start_time           datetime comment '¿ªÊ¼ÈÕÆÚ',
-   end_time             datetime comment '½áÊøÈÕÆÚ',
-   status               tinyint comment 'ÉÏÏÂÏß×´Ì¬',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   user_id              bigint comment '´´½¨ÈË',
-   primary key (id)
+    id          bigint not null auto_increment comment 'id',
+    title       varchar(255) comment 'ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½',
+    start_time  datetime comment 'ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½',
+    end_time    datetime comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    status      tinyint comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬',
+    create_time datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    user_id     bigint comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_seckill_promotion comment 'ÃëÉ±»î¶¯';
+alter table sms_seckill_promotion comment 'ï¿½ï¿½É±ï¿½î¶¯';
 
 /*==============================================================*/
 /* Table: sms_seckill_session                                   */
 /*==============================================================*/
 create table sms_seckill_session
 (
-   id                   bigint not null auto_increment comment 'id',
-   name                 varchar(200) comment '³¡´ÎÃû³Æ',
-   start_time           datetime comment 'Ã¿ÈÕ¿ªÊ¼Ê±¼ä',
-   end_time             datetime comment 'Ã¿ÈÕ½áÊøÊ±¼ä',
-   status               tinyint(1) comment 'ÆôÓÃ×´Ì¬',
-   create_time          datetime comment '´´½¨Ê±¼ä',
-   primary key (id)
+    id          bigint not null auto_increment comment 'id',
+    name        varchar(200) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    start_time  datetime comment 'Ã¿ï¿½Õ¿ï¿½Ê¼Ê±ï¿½ï¿½',
+    end_time    datetime comment 'Ã¿ï¿½Õ½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    status      tinyint(1) comment 'ï¿½ï¿½ï¿½ï¿½×´Ì¬',
+    create_time datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_seckill_session comment 'ÃëÉ±»î¶¯³¡´Î';
+alter table sms_seckill_session comment 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_seckill_sku_notice                                */
 /*==============================================================*/
 create table sms_seckill_sku_notice
 (
-   id                   bigint not null auto_increment comment 'id',
-   member_id            bigint comment 'member_id',
-   sku_id               bigint comment 'sku_id',
-   session_id           bigint comment '»î¶¯³¡´Îid',
-   subcribe_time        datetime comment '¶©ÔÄÊ±¼ä',
-   send_time            datetime comment '·¢ËÍÊ±¼ä',
-   notice_type          tinyint(1) comment 'Í¨Öª·½Ê½[0-¶ÌÐÅ£¬1-ÓÊ¼þ]',
-   primary key (id)
+    id            bigint not null auto_increment comment 'id',
+    member_id     bigint comment 'member_id',
+    sku_id        bigint comment 'sku_id',
+    session_id    bigint comment 'ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½id',
+    subcribe_time datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    send_time     datetime comment 'ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½',
+    notice_type   tinyint(1) comment 'Í¨Öªï¿½ï¿½Ê½[0-ï¿½ï¿½ï¿½Å£ï¿½1-ï¿½Ê¼ï¿½]',
+    primary key (id)
 );
 
-alter table sms_seckill_sku_notice comment 'ÃëÉ±ÉÌÆ·Í¨Öª¶©ÔÄ';
+alter table sms_seckill_sku_notice comment 'ï¿½ï¿½É±ï¿½ï¿½Æ·Í¨Öªï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_seckill_sku_relation                              */
 /*==============================================================*/
 create table sms_seckill_sku_relation
 (
-   id                   bigint not null auto_increment comment 'id',
-   promotion_id         bigint comment '»î¶¯id',
-   promotion_session_id bigint comment '»î¶¯³¡´Îid',
-   sku_id               bigint comment 'ÉÌÆ·id',
-   seckill_price        decimal comment 'ÃëÉ±¼Û¸ñ',
-   seckill_count        decimal comment 'ÃëÉ±×ÜÁ¿',
-   seckill_limit        decimal comment 'Ã¿ÈËÏÞ¹ºÊýÁ¿',
-   seckill_sort         int comment 'ÅÅÐò',
-   primary key (id)
+    id                   bigint not null auto_increment comment 'id',
+    promotion_id         bigint comment 'ï¿½î¶¯id',
+    promotion_session_id bigint comment 'ï¿½î¶¯ï¿½ï¿½ï¿½ï¿½id',
+    sku_id               bigint comment 'ï¿½ï¿½Æ·id',
+    seckill_price        decimal comment 'ï¿½ï¿½É±ï¿½Û¸ï¿½',
+    seckill_count        decimal comment 'ï¿½ï¿½É±ï¿½ï¿½ï¿½ï¿½',
+    seckill_limit        decimal comment 'Ã¿ï¿½ï¿½ï¿½Þ¹ï¿½ï¿½ï¿½ï¿½ï¿½',
+    seckill_sort         int comment 'ï¿½ï¿½ï¿½ï¿½',
+    primary key (id)
 );
 
-alter table sms_seckill_sku_relation comment 'ÃëÉ±»î¶¯ÉÌÆ·¹ØÁª';
+alter table sms_seckill_sku_relation comment 'ï¿½ï¿½É±ï¿½î¶¯ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½';
 
 /*==============================================================*/
 /* Table: sms_sku_full_reduction                                */
 /*==============================================================*/
 create table sms_sku_full_reduction
 (
-   id                   bigint not null auto_increment comment 'id',
-   sku_id               bigint comment 'spu_id',
-   full_price           decimal(18,4) comment 'Âú¶àÉÙ',
-   reduce_price         decimal(18,4) comment '¼õ¶àÉÙ',
-   add_other            tinyint(1) comment 'ÊÇ·ñ²ÎÓëÆäËûÓÅ»Ý',
-   primary key (id)
+    id           bigint not null auto_increment comment 'id',
+    sku_id       bigint comment 'spu_id',
+    full_price   decimal(18, 4) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    reduce_price decimal(18, 4) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    add_other    tinyint(1) comment 'ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½',
+    primary key (id)
 );
 
-alter table sms_sku_full_reduction comment 'ÉÌÆ·Âú¼õÐÅÏ¢';
+alter table sms_sku_full_reduction comment 'ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢';
 
 /*==============================================================*/
 /* Table: sms_sku_ladder                                        */
 /*==============================================================*/
 create table sms_sku_ladder
 (
-   id                   bigint not null auto_increment comment 'id',
-   sku_id               bigint comment 'spu_id',
-   full_count           int comment 'Âú¼¸¼þ',
-   discount             decimal(4,2) comment '´ò¼¸ÕÛ',
-   price                decimal(18,4) comment 'ÕÛºó¼Û',
-   add_other            tinyint(1) comment 'ÊÇ·ñµþ¼ÓÆäËûÓÅ»Ý[0-²»¿Éµþ¼Ó£¬1-¿Éµþ¼Ó]',
-   primary key (id)
+    id         bigint not null auto_increment comment 'id',
+    sku_id     bigint comment 'spu_id',
+    full_count int comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    discount   decimal(4, 2) comment 'ï¿½ï¿½ï¿½ï¿½',
+    price      decimal(18, 4) comment 'ï¿½Ûºï¿½ï¿½',
+    add_other  tinyint(1) comment 'ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å»ï¿½[0-ï¿½ï¿½ï¿½Éµï¿½ï¿½Ó£ï¿½1-ï¿½Éµï¿½ï¿½ï¿½]',
+    primary key (id)
 );
 
-alter table sms_sku_ladder comment 'ÉÌÆ·½×ÌÝ¼Û¸ñ';
+alter table sms_sku_ladder comment 'ï¿½ï¿½Æ·ï¿½ï¿½ï¿½Ý¼Û¸ï¿½';
 
 /*==============================================================*/
 /* Table: sms_spu_bounds                                        */
 /*==============================================================*/
 create table sms_spu_bounds
 (
-   id                   bigint not null auto_increment comment 'id',
-   spu_id               bigint,
-   grow_bounds          decimal(18,4) comment '³É³¤»ý·Ö',
-   buy_bounds           decimal(18,4) comment '¹ºÎï»ý·Ö',
-   work                 tinyint(1) comment 'ÓÅ»ÝÉúÐ§Çé¿ö[1111£¨ËÄ¸ö×´Ì¬Î»£¬´ÓÓÒµ½×ó£©;0 - ÎÞÓÅ»Ý£¬³É³¤»ý·ÖÊÇ·ñÔùËÍ;1 - ÎÞÓÅ»Ý£¬¹ºÎï»ý·ÖÊÇ·ñÔùËÍ;2 - ÓÐÓÅ»Ý£¬³É³¤»ý·ÖÊÇ·ñÔùËÍ;3 - ÓÐÓÅ»Ý£¬¹ºÎï»ý·ÖÊÇ·ñÔùËÍ¡¾×´Ì¬Î»0£º²»ÔùËÍ£¬1£ºÔùËÍ¡¿]',
-   primary key (id)
+    id          bigint not null auto_increment comment 'id',
+    spu_id      bigint,
+    grow_bounds decimal(18, 4) comment 'ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½',
+    buy_bounds  decimal(18, 4) comment 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½',
+    work        tinyint(1) comment 'ï¿½Å»ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½[1111ï¿½ï¿½ï¿½Ä¸ï¿½×´Ì¬Î»ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½;0 - ï¿½ï¿½ï¿½Å»Ý£ï¿½ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½;1 - ï¿½ï¿½ï¿½Å»Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½;2 - ï¿½ï¿½ï¿½Å»Ý£ï¿½ï¿½É³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½;3 - ï¿½ï¿½ï¿½Å»Ý£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Í¡ï¿½×´Ì¬Î»0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½]',
+    primary key (id)
 );
 
-alter table sms_spu_bounds comment 'ÉÌÆ·spu»ý·ÖÉèÖÃ';
+alter table sms_spu_bounds comment 'ï¿½ï¿½Æ·spuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';

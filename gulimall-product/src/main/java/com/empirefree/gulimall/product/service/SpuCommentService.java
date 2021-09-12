@@ -9,9 +9,9 @@ import java.util.Map;
 /**
  * 商品评价
  *
- * @author Empirefree
- * @email skt.hyq@gmail.com
- * @date 2020-05-08 09:35:34
+ * @author empirefree
+ * @email 1842449680@qq.com
+ * @date 2020-05-31 17:06:04
  */
 public interface SpuCommentService extends IService<SpuCommentEntity> {
 
