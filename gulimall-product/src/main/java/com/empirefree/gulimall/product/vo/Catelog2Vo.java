@@ -3,6 +3,7 @@ package com.empirefree.gulimall.product.vo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.io.Serializable;
 import java.util.List;
@@ -15,8 +16,10 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@ToString
 public class Catelog2Vo implements Serializable {
 
+    private static final long serialVersionUID = -3957656981437547787L;
     private String id;
 
     private String name;

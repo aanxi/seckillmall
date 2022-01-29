@@ -6,6 +6,7 @@ import com.empirefree.gulimall.product.service.CategoryService;
 import com.empirefree.gulimall.product.vo.Catelog2Vo;
 import org.redisson.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -154,6 +155,7 @@ public class IndexController {
 		return "index";
 	}
 
+	@Cacheable(value = {"category"}, key = "#root.method.name")
 	@ResponseBody
 	@RequestMapping("/index/catalog.json")
 	public Map<String, List<Catelog2Vo>> getCatlogJson() {
