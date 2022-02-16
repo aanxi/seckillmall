@@ -1,9 +1,11 @@
 package com.empirefree.gulimall.order.service.impl;
 
+import com.empirefree.gulimall.order.entity.OrderEntity;
 import com.empirefree.gulimall.order.entity.OrderReturnReasonEntity;
 import com.rabbitmq.client.Channel;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.core.MessageProperties;
+import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
 
-
+@RabbitListener(queues = {"GuliMall-java-queue"})   //底层@Target表明可以修饰方法与类
 @Service("orderItemService")
 public class OrderItemServiceImpl extends ServiceImpl<OrderItemDao, OrderItemEntity> implements OrderItemService {
 
@@ -36,14 +38,30 @@ public class OrderItemServiceImpl extends ServiceImpl<OrderItemDao, OrderItemEnt
 
         return new PageUtils(page);
     }
-
-    @RabbitListener(queues = {"GuliMall-java-queue"})
-    public void receiveMessage(Message message, OrderReturnReasonEntity content, Channel channel){
+    /**
+     * Author: HuYuQiao
+     * Description:
+     * 1.同一条消息，只有一个消息队列会接受处理
+     * 2.每条消息的接受都到等待队列处理完上一条消息
+     * 3.区分消息（消息发送者类型不同）
+     * @RabbitListener(标注与类和方法上)
+     * @RabbitHandler(标注与方法上，用重载不同消息处理实体类进行区分消息如何处理。)
+     *
+     */
+    @RabbitHandler
+    public void receiveMessage(Message message, OrderReturnReasonEntity content, Channel channel) throws InterruptedException {
+        System.out.println("开始接受消息---");
         byte[] body = message.getBody();
         MessageProperties messageProperties = message.getMessageProperties();
         System.out.println("OrderItemServiceImpl.receiveMessage--接受到了消息:" + message
                 + " | " + message.getClass()
                 + " | " + content);
+        System.out.println("消息处理完成---");
+    }
+
+    @RabbitHandler
+    public void receiveMessage(OrderEntity content, Channel channel) throws InterruptedException {
+        System.out.println("OrderItemServiceImpl.receiveMessage--接受到了消息:" + content);
     }
 
 }

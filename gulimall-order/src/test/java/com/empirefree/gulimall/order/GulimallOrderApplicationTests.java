@@ -1,5 +1,6 @@
 package com.empirefree.gulimall.order;
 
+import com.empirefree.gulimall.order.entity.OrderEntity;
 import com.empirefree.gulimall.order.entity.OrderReturnReasonEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -14,6 +15,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Slf4j
 @SpringBootTest
@@ -33,7 +35,15 @@ class GulimallOrderApplicationTests {
         orderReturnReasonEntity.setCreateTime(new Date());
         orderReturnReasonEntity.setName("胡宇乔");
         String msg = "Hello world";
-        rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao", orderReturnReasonEntity);
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0){
+                rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao", orderReturnReasonEntity);
+            } else {
+                OrderEntity orderEntity = new OrderEntity();
+                orderEntity.setOrderSn(UUID.randomUUID().toString().replace("-", ""));
+                rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao", orderEntity);
+            }
+        }
     }
 
     @Test
