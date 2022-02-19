@@ -9,6 +9,7 @@ import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.DirectExchange;
 import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -37,11 +38,11 @@ class GulimallOrderApplicationTests {
         String msg = "Hello world";
         for (int i = 0; i < 10; i++) {
             if (i % 2 == 0){
-                rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao", orderReturnReasonEntity);
+                rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao", orderReturnReasonEntity, new CorrelationData(UUID.randomUUID().toString()));
             } else {
                 OrderEntity orderEntity = new OrderEntity();
                 orderEntity.setOrderSn(UUID.randomUUID().toString().replace("-", ""));
-                rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao", orderEntity);
+                rabbitTemplate.convertAndSend("GuliMall-java-exchange", "huyuqiao22", orderEntity,  new CorrelationData(UUID.randomUUID().toString()));
             }
         }
     }
