@@ -4,7 +4,9 @@ import java.util.Arrays;
 import java.util.Map;
 
 import com.empirefree.gulimall.member.feign.CouponFeignService;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,12 +36,15 @@ public class MemberController {
     @Autowired
     private CouponFeignService couponFeignService;
 
+    @GlobalTransactional
     @RequestMapping("/coupons")
+    @Transactional
     public R test() {
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setNickname("胡宇乔");
 
         R membercouponse = couponFeignService.membercoupones();
+        int a = 10 / 0;
         //前者：自己定义    后者：从远程服务得到
         return R.ok().put("member", memberEntity).put("coupons", membercouponse.get("coupons"));
     }

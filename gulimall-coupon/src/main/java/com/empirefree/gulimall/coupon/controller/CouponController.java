@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,10 +46,14 @@ public class CouponController {
     }
 
     //会员调用优惠劵
+    @Transactional
     @RequestMapping("/member/list")
     public R membercoupones() {
         CouponEntity couponEntity = new CouponEntity();
         couponEntity.setCouponName("陈想买一送一");
+
+        // 测试入库
+        couponService.insert();
         return R.ok().put("coupons", Arrays.asList(couponEntity));
     }
 

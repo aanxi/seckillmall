@@ -26,6 +26,14 @@ public class CouponServiceImpl extends ServiceImpl<CouponDao, CouponEntity> impl
         );
 
         return new PageUtils(page);
+
+    }
+
+    @Override
+    public void insert(){
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("胡宇乔测试券");
+        this.baseMapper.insert(couponEntity);
     }
 
 }
